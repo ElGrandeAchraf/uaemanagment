@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<!-- Mirrored from evince.websitelayout.net/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 15 Jan 2023 12:15:57 GMT -->
+<head>
+    <!-- metas -->
+    <meta charset="utf-8" />
+    <meta name="author" content="WiiCode" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="keywords" content="admin,dashboard" />
+    <meta
+            name="description"
+            content="UAE University Managment By WiiCode Team (Ayoub, Achraf, Ezzohra)"
+    />
+
+    <!-- title  -->
+    <title>Exam Control</title>
+
+    <!-- favicon -->
+    <link rel="shortcut icon" th:href="@{img/logos/favicon.ico}" />
+    <link rel="apple-touch-icon" th:href="@{img/logos/favicon-16x16.png}" />
+    <link
+            rel="apple-touch-icon"
+            sizes="32x32"
+            th:href="@{img/logos/favicon-32x32.png}"
+    />
+    <link
+            rel="apple-touch-icon"
+            sizes="150x150"
+            th:href="@{img/logos/mstile-150x150.png}"
+    />
+
+    <!-- common plugins -->
+    <link rel="stylesheet" th:href="@{plugins/bootstrap/css/bootstrap.min.css}" />
+    <link
+            rel="stylesheet"
+            th:href="@{plugins/font-awesome/css/font-awesome.min.css}"
+    />
+    <script
+            th:src="@{https://kit.fontawesome.com/9c5ad173f3.js}"
+            crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" th:href="@{plugins/icomoon/style.css}" />
+    <link rel="stylesheet" th:href="@{plugins/uniform/css/default.css}" />
+    <link rel="stylesheet" th:href="@{plugins/switchery/switchery.min.css}" />
+
+    <!-- nvd3 plugin -->
+    <link rel="stylesheet" th:href="@{plugins/nvd3/nv.d3.min.css}" />
+
+    <!-- custom css -->
+    <link rel="stylesheet" th:href="@{css/styles.css}" />
+    <link rel="stylesheet" th:href="@{css/Etudiant.css}" />
+
+
+    <link th:href="@{plugins/dropzone/dropzone.min.css}" rel="stylesheet">
+    <link th:href="@{plugins/plupload/js/jquery.plupload.queue/css/jquery.plupload.queue.css}" rel="stylesheet" />
+
+
+
+
+
+
+</head>
+
+<body>
+<!-- start page loading -->
+<div id="preloader">
+    <div class="row loader">
+        <div class="loader-icon"></div>
+    </div>
+</div>
+<!-- end page loading -->
+
+<!-- start page container -->
+<div class="page-container">
+    <!-- start page sidebar -->
+    <div class="page-sidebar">
+        <a class="logo-box" th:href="@{profDash}">
+            <span><img th:src="@{/img/logos/logo.png}" ></span>
+            </i>
+            <i style="color: black;" class="icon-close" id="sidebar-toggle-button-close"></i>
+        </a>
+        <div class="page-sidebar-inner">
+            <div class="page-sidebar-menu">
+                <ul class="accordion-menu">
+                    <li>
+                        <a href="javascript:void(0);">
+                            <i class="menu-icon icon-flash_on"></i
+                            ><span>Prof Control</span
+                        ><i class="accordion-icon fa fa-angle-left"></i>
+                        </a>
+                        <ul>
+                            <li><a th:href="@{etudiantsList}">Etudiants List</a></li>
+                            <li><a th:href="@{notesList}">Notes List</a></li>
+                            <li><a th:href="@{seanceList}">Seances List</a></li>
+                            <li><a th:href="@{examsList}">Exams List</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- end page sidebar -->
+
+    <!-- start page content -->
+    <div class="page-content">
+        <!-- start page header -->
+        <div class="page-header">
+            <div class="search-form">
+                <form action="#" method="GET">
+                    <div class="input-group">
+                        <input
+                                type="text"
+                                name="search"
+                                class="form-control search-input"
+                                placeholder="Type something..."
+                        />
+                        <span class="input-group-btn">
+                  <button
+                          class="btn btn-default"
+                          id="close-search"
+                          type="button"
+                  >
+                    <i class="icon-close"></i>
+                  </button>
+                </span>
+                    </div>
+                </form>
+            </div>
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <div class="logo-sm">
+                            <a href="javascript:void(0)" id="sidebar-toggle-button"
+                            ><i class="fa fa-bars"></i
+                            ></a>
+                        </div>
+                        <button
+                                type="button"
+                                class="navbar-toggle collapsed"
+                                data-toggle="collapse"
+                                data-target="#bs-example-navbar-collapse-1"
+                                aria-expanded="false"
+                        >
+                            <i class="fa fa-angle-down"></i>
+                        </button>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+
+                    <div
+                            class="collapse navbar-collapse"
+                            id="bs-example-navbar-collapse-1"
+                    >
+                        <ul class="nav navbar-nav">
+                            <li>
+                                <a
+                                        href="javascript:void(0)"
+                                        id="collapsed-sidebar-toggle-button"
+                                ><i class="fa fa-bars"></i
+                                ></a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" id="toggle-fullscreen"
+                                ><i class="fa fa-expand"></i
+                                ></a>
+                            </li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown user-dropdown">
+                                <a
+                                        href="#"
+                                        class="dropdown-toggle"
+                                        data-toggle="dropdown"
+                                        role="button"
+                                        aria-haspopup="true"
+                                        aria-expanded="false"
+                                ><img
+                                        src="img/avatars/user-dropdown.jpg"
+                                        alt=""
+                                        class="rounded-circle"
+                                /></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Profile</a></li>
+                                    <li><a href="#">Calendar</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="#">Account Settings</a></li>
+                                    <li><a href="#">Log Out</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- /.navbar-collapse -->
+                </div>
+                <!-- /.container-fluid -->
+            </nav>
+        </div>
+        <!-- end page header -->
+        <!-- start page inner -->
+        <div class="page-inner">
+            <!-- start page main wrapper -->
+            <!-- Students List -->
+            <h2 id="StudentsList">Exams</h2>
+
+
+            <div id="uploader">
+                <p>Your browser doesn't have Flash, Silverlight or HTML5 support.</p>
+            </div>
+
+
+            <!-- end page main wrapper -->
+            <!--
+                <div class="page-footer">
+                <p>Copyright &copy; 2023 Evince All rights reserved.</p>
+                </div>
+            -->
+        </div>
+        <!-- end page inner -->
+    </div>
+    <!-- end page content -->
+</div>
+<!-- end page container -->
+</div>
+<!-- start scroll to top -->
+<a href="javascript:void(0)" class="scroll-to-top"
+><i class="fas fa-angle-up" aria-hidden="true"></i
+></a>
+<!-- end scroll to top -->
+
+<!-- all js include start -->
+
+<!-- jQuery -->
+<script th:src="@{plugins/jquery/jquery-3.1.0.min.js}"></script>
+
+<!-- popper -->
+<script th:src="@{plugins/popper/js/popper.min.js}"></script>
+
+<!-- bootstrap -->
+<script th:src="@{plugins/bootstrap/js/bootstrap.min.js}"></script>
+
+<!-- slimscroll -->
+<script th:src="@{plugins/jquery-slimscroll/jquery.slimscroll.min.js}"></script>
+
+<!-- uniform -->
+<script th:src="@{plugins/uniform/js/jquery.uniform.standalone.js}"></script>
+
+<!-- switchery -->
+<script th:src="@{plugins/switchery/switchery.min.js}"></script>
+
+<!-- float chart -->
+<script th:src="@{plugins/flot/jquery.flot.min.js}"></script>
+
+<!-- float pie -->
+<script th:src="@{plugins/flot/jquery.flot.pie.min.js}"></script>
+
+<!-- dashboard js -->
+<script th:src="@{js/pages/dashboard.js}"></script>
+
+<!-- apex chart -->
+<script th:src="@{plugins/apexcharts/apexcharts.js}"></script>
+
+<!-- custom scripts -->
+<script th:src="@{js/main.js}"></script>
+
+
+<script th:src="@{plugins/plupload/js/plupload.full.min.js}"></script>
+<script th:src="@{plugins/plupload/js/jquery.plupload.queue/jquery.plupload.queue.min.js}"></script>
+<script th:src="@{js/pages/form-file-upload.js}"></script>
+
+
+
+<!-- all js include end -->
+</body>
+
+<!-- Mirrored from evince.websitelayout.net/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 15 Jan 2023 12:16:20 GMT -->
+</html>
+
+</body>
+</html>
